@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+uploads/
+*.pyc
+.ipynb_checkpoints/
+Disaster_Classification_Presentation 1.pptx
+disaster_6class_model.keras

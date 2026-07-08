@@ -4,5 +4,5 @@ tensorflow
 numpy
 pillow
 python-multipart
-opencv-python-headless
 gunicorn
+opencv-python-headless
