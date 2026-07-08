@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy Python app to Azure Web App - raqib
 
 on:
@@ -20,18 +17,11 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-
       - name: Install dependencies
-        run: |
-          source venv/bin/activate
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt --target=./.python_packages/lib/site-packages
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip . -x "venv/*"
+        run: zip -r release.zip . -x "*.git*"
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
@@ -59,4 +49,4 @@ jobs:
         with:
           app-name: 'raqib'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_04b503432f834d9fb89b7e78748eb8aa }}
+          publish-profile: ${{secrets.AZUREAPPSERVICE_PUBLISHPROFILE_04B503432F834D9FB89B7E78748EB8AA}}
